@@ -1,11 +1,13 @@
-var nodejieba = require( __dirname + "/build/Release/nodejieba.node");
-nodejieba.DEFAULT_DICT = __dirname + "/dict/jieba.dict.utf8",
-nodejieba.DEFAULT_HMM_DICT = __dirname + "/dict/hmm_model.utf8",
-nodejieba.DEFAULT_USER_DICT = __dirname + "/dict/user.dict.utf8";
-nodejieba.DEFAULT_IDF_DICT = __dirname + "/dict/idf.utf8";
-nodejieba.DEFAULT_STOP_WORD_DICT = __dirname + "/dict/stop_words.utf8";
+const path = require('path')
+const nodejieba = require('./build/Release/nodejieba.node')
 
-var isDictLoaded = false;
+nodejieba.DEFAULT_DICT = path.resolve(__dirname, 'dict', 'jieba.dict.utf8')
+nodejieba.DEFAULT_HMM_DICT = path.resolve(__dirname, 'dict', 'hmm_model.utf8')
+nodejieba.DEFAULT_USER_DICT = path.resolve(__dirname, 'dict', 'user.dict.utf8')
+nodejieba.DEFAULT_IDF_DICT = path.resolve(__dirname, 'dict', 'idf.utf8')
+nodejieba.DEFAULT_STOP_WORD_DICT = path.resolve(__dirname, 'dict', 'stop_words.utf8')
+
+var isDictLoaded = false
 
 var someFunct = nodejieba.load;
 nodejieba.load = function (dictJson) {
@@ -42,4 +44,3 @@ wrapWithDictLoad(nodejieba, "extract");
 wrapWithDictLoad(nodejieba, "insertWord");
 
 module.exports = nodejieba;
-
