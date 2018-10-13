@@ -25,15 +25,9 @@
     "结巴分词"
   ],
   "dependencies": {
-    "nan": "~2.10.0"
+    "nan": "^2.11.1"
   },
-  "devDependencies": {
-    "coveralls": "~2.11.6",
-    "istanbul": "~0.4.1",
-    "mocha": "~2.4.5",
-    "should": "~8.3.1",
-    "typescript": "^3.0.1"
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "node test/demo.js && node test/load_dict_demo.js && mocha --timeout 10s -R spec test/test.js && mocha --timeout 10s -R spec test/load_dict_test.js"
   },
